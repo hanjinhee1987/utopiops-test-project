@@ -1,0 +1,85 @@
+.edit-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0 0;
+  gap: 3rem 0;
+}
+
+.edit-inp-1,
+.edit-inp-2 {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.edit-inp-1 > input,
+.edit-inp-2 > textarea {
+  width: 100%;
+  padding: 0.2rem 1rem;
+  height: 2rem;
+  border-radius: 0.4rem;
+  border: 0.05rem solid rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.15rem;
+}
+.edit-inp-2 > textarea {
+  min-width: 100%;
+  max-width: 40rem;
+  min-height: 10rem;
+  max-height: 10rem;
+  padding: 0.7rem 1rem;
+}
+
+.edit-inp-1 > label,
+.edit-inp-2 > label {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  transition: all 0.5s;
+  pointer-events: none;
+}
+
+.edit-inp-1 > label {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.edit-inp-1 > label.change,
+.edit-inp-2 > label.change {
+  top: -1.5rem;
+  transform: translateY(0);
+  left: 0;
+}
+
+.edit-item-btns {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-item a,
+.edit-item button {
+  width: 4rem;
+  height: 1.5rem;
+  padding: 0.4rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  border: 0.05rem solid #000;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.edit-item a:hover,
+.edit-item button:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}

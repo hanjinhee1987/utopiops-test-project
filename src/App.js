@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from "react-router-dom";
+import UserList from './components/UserList';
+import EditItem from './components/EditItem';
+import PageNotFound from './components/PageNotFound';
+import { useContext } from 'react';
+import { context } from './context/context';
 function App() {
+  const ctx = useContext(context);
+  // const location = useLocation();
+  console.log(window.location.pathname);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={UserList} />
+          {ctx.expectedId !== undefined && (
+            <Route path="/edit-item" component={EditItem} />
+          )}
+          {ctx.expectedId === undefined && window.location.pathname === "/edit-item" && (
+            <Redirect to="/" />
+          )}
+          <Route component={PageNotFound} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
